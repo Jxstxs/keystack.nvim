@@ -4,7 +4,7 @@ a Simple Neovim Plugin which let you remap Keys on the Fly based on Groups
 
 ## Demo
 
-![Demo]()
+![Demo](./demo-keystack.gif)
 
 ## Usage/Examples
 
@@ -35,6 +35,9 @@ keystack.config({
         ...
     }
 })
+
+-- Example Binding for page_moving
+vim.api.nvim_set_keymap("n", "<leader>m", ":lua require('keystack').push('page_moving')")
 ```
 
 ## Features
