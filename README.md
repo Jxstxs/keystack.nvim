@@ -28,8 +28,8 @@ keystack.config({
             opts = { silent = true },
             maps = {
                 -- key = command
-                ["<C-J>"] = "<C-D>",
-                ["<C-K>"] = "<C-U>",
+                ["j"] = "<C-D>",
+                ["k"] = "<C-U>",
             }
         },
         ...
