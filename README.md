@@ -4,7 +4,7 @@ a Simple Neovim Plugin which let you remap Keys on the Fly based on Groups
 
 ## Demo
 
-Insert gif or link to demo
+![Demo]()
 
 ## Usage/Examples
 
@@ -12,16 +12,22 @@ Insert gif or link to demo
 local keystack = require("keystack")
 
 keystack.config({
+    -- the options which will be used when no options were given inside the mapping
     default_opts = { silent = true },
+    -- the key to exit the "Group" when no exit key is given inside the mapping
     default_exit_key = "q",
+    -- the mode which will be used when no mode is given inside the mapping 
     default_mode = "n",
 
+    -- where the "Groups" are defined
     mappings = {
+        -- name of the Group
         ["page_moving"] = {
             exit_key = "<C-H>",
             mode = "n",
             opts = { silent = true },
             maps = {
+                -- key = command
                 ["<C-J>"] = "<C-D>",
                 ["<C-K>"] = "<C-U>",
             }
@@ -39,6 +45,7 @@ keystack.config({
 ## Documentation
 
 Type `:help keystack` in Neovim
+
 ## Installation
 
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
@@ -49,11 +56,7 @@ use { "Jxstxs/keystack" }
     
 ## Contributing
 
-Contributions are always welcome!
-
-See `contributing.md` for ways to get started.
-
-Please adhere to this project's `code of conduct`.
+Contributions are always welcome! Just remember to be Kind
 
 ## License
 
