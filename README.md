@@ -16,7 +16,18 @@ keystack.config({
     default_exit_key = "q",
     default_mode = "n",
 
-    mappings = {}
+    mappings = {
+        ["page_moving"] = {
+            exit_key = "<C-H>",
+            mode = "n",
+            opts = { silent = true },
+            maps = {
+                ["<C-J>"] = "<C-D>",
+                ["<C-K>"] = "<C-U>",
+            }
+        },
+        ...
+    }
 })
 ```
 
