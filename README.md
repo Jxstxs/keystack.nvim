@@ -1,31 +1,49 @@
-## keystack.nvim
+# keystack.nvim
 
-a Neovim Plugin to Map different Keys to your normal Key map on the Fly.
+a Simple Neovim Plugin which let you remap Keys on the Fly based on Groups
 
-### Installation
+## Demo
 
-Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+Insert gif or link to demo
 
-```lua
-use { "Jxstxs/keystack.nvim" }
-```
-
-### Configuration
-
-Create a keystack.lua file in your lua Folder and edit it like you want.
-Here's an example
+## Usage/Examples
 
 ```lua
 local keystack = require("keystack")
 
 keystack.config({
-    mappings = {
-        maps = {
-
-        },
-    },
     default_opts = { silent = true },
     default_exit_key = "q",
     default_mode = "n",
+
+    mappings = {}
 })
 ```
+
+## Features
+
+- switch between Key Bindings on the Fly
+- show the new Keys in a floating Window
+
+## Documentation
+
+Type `:help keystack` in Neovim
+## Installation
+
+Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use { "Jxstxs/keystack" }
+```
+    
+## Contributing
+
+Contributions are always welcome!
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
+
+## License
+
+This Project uses the MIT License, as mentionet [here](./LICENSE).
