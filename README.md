@@ -64,4 +64,4 @@ Contributions are always welcome! Just remember to be Kind
 
 ## License
 
-This Project uses the MIT License, as mentionet [here](./LICENSE).
+This Project uses the MIT License, as mentioned [here](./LICENSE).
