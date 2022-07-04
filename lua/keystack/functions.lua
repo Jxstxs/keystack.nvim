@@ -74,6 +74,9 @@ M.pushMapToStack = function(map_name)
         vim.api.nvim_set_keymap(mode, k, v, opts)
     end
 
+    -- remove the exit key from the given map to prevent overloading
+    options.mappings[map_name].maps[exit_key] = nil
+
     -- push existing and non existing keys to stack
     local stack_map = {
         existing_keys = existing_keys,
