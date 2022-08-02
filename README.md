@@ -55,7 +55,7 @@ Type `:help keystack` in Neovim
 Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use { "Jxstxs/keystack" }
+use { "Jxstxs/keystack.nvim" }
 ```
     
 ## Contributing
