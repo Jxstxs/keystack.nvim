@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap("n", "<leader>m", ":lua require('keystack').push('page_m
 ## Features
 
 - switch between Key Bindings on the Fly
-- show the new Keys in a floating Window
+<!--- - show the new Keys in a floating Window ---!>
 
 ## Documentation
 
