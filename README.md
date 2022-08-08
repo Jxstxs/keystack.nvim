@@ -15,7 +15,7 @@ keystack.config({
     -- the options which will be used when no options were given inside the mapping
     default_opts = { silent = true },
     -- the key to exit the "Group" when no exit key is given inside the mapping
-    default_exit_key = "q",
+    default_exit_key = "q", -- You can pass a table instead if you want multiple ways to exit
     -- the mode which will be used when no mode is given inside the mapping 
     default_mode = "n",
 
@@ -30,6 +30,10 @@ keystack.config({
                 -- key = command
                 ["j"] = "<C-D>",
                 ["k"] = "<C-U>",
+		-- or a function 
+		["<Space>"] = function()
+			-- your function here
+		end,
             }
         },
         ...

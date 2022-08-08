@@ -44,15 +44,26 @@ M.pushMapToStack = function(map_name)
     end
 
     -- check for exit key
-    local exit_key = ""
+    local exit_key = nil
     if options.mappings[map_name].exit_key then
         exit_key = options.mappings[map_name].exit_key
     else
         exit_key = options.default_exit_key
     end
 
+    -- Check exit_key is a table or string
+if type(exit_key) == 'table' then
     -- add the exit key to the new map
-    options.mappings[map_name].maps[exit_key] = ":lua require'keystack'.pop('" .. map_name  .. "')<CR>"
+    for _,v in ipairs(exit_key) do
+     options.mappings[map_name].maps[v] = function()
+	     require'keystack'.pop(map_name)
+     end
+     end
+else
+	options.mappings[map_name].map[exit_key] = function()
+		require('keystack').pop(map_name)
+	end
+end
 
     -- loop through new map and check if key exists in current map (backup of the duplicated keys)
     local current_map = vim.api.nvim_get_keymap(mode)
@@ -71,7 +82,7 @@ M.pushMapToStack = function(map_name)
     -- update the keymap 
     for k, v in pairs(options.mappings[map_name].maps) do
         -- print("Adding key " .. k .. " to map " .. map_name)
-        vim.api.nvim_set_keymap(mode, k, v, opts)
+        vim.keymap.set(mode, k, v, opts)
     end
 
     -- remove the exit key from the given map to prevent overloading
@@ -100,15 +111,16 @@ M.popMapFromStack = function(map_name)
     M._stack[map_name] = nil
 
     -- loop through map and restore the keys
-    for k, v in pairs(stack_map.existing_keys) do
+    for k, v in ipairs(stack_map.existing_keys) do
+
         -- print("Restoring key " .. k .. " to " .. v.rhs .. " in mode " .. stack_map.mode .. " with opts " .. vim.inspect(v.opts))
-        vim.api.nvim_set_keymap(stack_map.mode, k, v.rhs, v.opts or {})
+        vim.keymap.set(stack_map.mode, k, v.rhs, v.opts or {})
     end
 
     -- loop through map and remove the keys
     for _, v in pairs(stack_map.non_existing_keys) do
         -- print("Removing key " .. v .. " in mode " .. stack_map.mode)
-        vim.api.nvim_del_keymap(stack_map.mode, v)
+        vim.keymap.del(stack_map.mode, v)
     end
 
     print("Map " .. map_name .. " popped from stack and deactivated")
