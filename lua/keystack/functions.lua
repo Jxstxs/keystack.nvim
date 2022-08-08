@@ -60,6 +60,7 @@ M.pushMapToStack = function(map_name)
              end
          end
     else
+        options.mappings[map_name].maps[exit_key] = function()
             require('keystack').pop(map_name)
         end
     end
