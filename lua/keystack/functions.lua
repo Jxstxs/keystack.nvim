@@ -52,18 +52,17 @@ M.pushMapToStack = function(map_name)
     end
 
     -- Check exit_key is a table or string
-if type(exit_key) == 'table' then
-    -- add the exit key to the new map
-    for _,v in ipairs(exit_key) do
-     options.mappings[map_name].maps[v] = function()
-	     require'keystack'.pop(map_name)
-     end
-     end
-else
-	options.mappings[map_name].map[exit_key] = function()
-		require('keystack').pop(map_name)
-	end
-end
+    if type(exit_key) == 'table' then
+        -- add the exit key to the new map
+        for _,v in ipairs(exit_key) do
+             options.mappings[map_name].maps[v] = function()
+                 require'keystack'.pop(map_name)
+             end
+         end
+    else
+            require('keystack').pop(map_name)
+        end
+    end
 
     -- loop through new map and check if key exists in current map (backup of the duplicated keys)
     local current_map = vim.api.nvim_get_keymap(mode)
