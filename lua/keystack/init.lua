@@ -11,6 +11,8 @@ local M = {
     config = require("keystack.config").config,
     push = require("keystack.functions").pushMapToStack,
     pop = require("keystack.functions").popMapFromStack,
+    show_preview = require("keystack.popup").showPreview,
+    close_preview = require("keystack.popup").closePreview,
 
     -- Variables
     options = require("keystack.config").options,
