@@ -35,5 +35,3 @@ keystack.pop({name})
 
     Removes the given Group from the Key map and restores the original state.
 
-
- vim:tw=78:ts=8:ft=help:norl:
