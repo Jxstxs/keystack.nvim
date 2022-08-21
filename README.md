@@ -52,7 +52,6 @@ vim.api.nvim_set_keymap("n", "<leader>m", ":lua require('keystack').push('page_m
 ## Documentation
 
 Type `:help keystack` in Neovim
-> This is not working by now (See Issue [#1](/../../issues/1))
 
 ## Installation
 
