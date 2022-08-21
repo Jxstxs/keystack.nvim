@@ -1,0 +1,39 @@
+================================================================================
+                                                               *keystack.nvim*
+
+This Plugin binds other Bindings to your Keys with the given Group and removes
+them when Finished.
+
+                                                            *keystack.config()*
+keystack.config({opts})
+
+    Should be run before any other keystack functions. It initializes
+    thethe plugin, sets the default options and adds the given mappings.
+    The options are:
+        default_opts: a table of options which will be used as default
+                      when no options are given in the mappings.
+        default_mode: the default mode to use when no mode is given in the
+                      mappings.
+        default_exit_key: the key to use when no exit key is given in the
+                          mappings.
+        mappings: a table of mappings. Each mapping is a table looking like:
+            {
+                maps: a table of keys and commands (keybinding = command)
+                opts: a table of options
+                mode: a string of the mode to bind the keys to
+                exit_key: a string of the key to exit the mode
+            }
+
+
+                                                             *keystack.push()*
+keystack.push({name})
+
+    Applies the given Group to the Key map and adds it original state to the Stack.
+
+                                                              *keystack.pop()*
+keystack.pop({name})
+
+    Removes the given Group from the Key map and restores the original state.
+
+
+ vim:tw=78:ts=8:ft=help:norl:
