@@ -9,7 +9,9 @@ M.options = {
 
 -- add a new option to the list
 M.config = function(opts)
-    M.options = vim.tbl_deep_extend("keep", opts, M.options)
+    for k,v in pairs(opts) do
+        M.options[k] = v
+    end
 end
 
 return M
