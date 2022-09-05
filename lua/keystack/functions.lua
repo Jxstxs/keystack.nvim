@@ -88,6 +88,11 @@ M.pushMapToStack = function(map_name)
 	-- remove the exit key from the given map to prevent overloading
 	options.mappings[map_name].maps[exit_key] = nil
 
+	-- run on_push function if defined
+	if options.mappings[map_name].on_push ~= nil then
+		options.mappings[map_name].on_push()
+	end
+
 	-- push existing and non existing keys to stack
 	local stack_map = {
 		existing_keys = existing_keys,
@@ -120,6 +125,10 @@ M.popMapFromStack = function(map_name)
 	for _, v in pairs(stack_map.non_existing_keys) do
 		-- print("Removing key " .. v .. " in mode " .. stack_map.mode)
 		vim.keymap.del(stack_map.mode, v)
+	end
+
+	if options.mappings[map_name].on_pop ~= nil then
+		options.mappings[map_name].on_pop()
 	end
 
 	print("Map " .. map_name .. " popped from stack and deactivated")
