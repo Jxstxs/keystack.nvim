@@ -35,6 +35,12 @@ keystack.config({
                     -- your function here
                 end,
             },
+            on_push = function ()
+                -- this function gets executed when the group gets pushed
+            end,
+            on_pop = function ()
+                -- this function gets executed when the group gets poped
+            end
         },
         ...
     }
