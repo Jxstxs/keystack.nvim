@@ -30,11 +30,11 @@ keystack.config({
                 -- key = command
                 ["j"] = "<C-D>",
                 ["k"] = "<C-U>",
-		-- or a function 
-		["<Space>"] = function()
-			-- your function here
-		end,
-            }
+                -- or a function 
+                ["<Space>"] = function()
+                    -- your function here
+                end,
+            },
         },
         ...
     }
