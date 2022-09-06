@@ -66,7 +66,12 @@ Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
 ```lua
 use { "Jxstxs/keystack.nvim" }
 ```
-    
+
+## Changelog
+
+* to configure your mappings you can now also use ´require("keystack").setup({...})´
+* you can define function which will get executed when pushing or popping the keys from the stack
+
 ## Contributing
 
 Contributions are always welcome! Just remember to be Kind
