@@ -2,6 +2,8 @@
 
 a Simple Neovim Plugin which let you remap Keys on the Fly based on Groups
 
+For Changes please take a look at the [changelog](./README.md#Changelog) section
+
 ## Demo
 
 ![Demo](./demo-keystack.gif)
