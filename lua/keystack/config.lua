@@ -8,7 +8,7 @@ M.options = {
 }
 
 -- add a new option to the list
-M.config = function(opts)
+M.setup = function(opts)
     for k,v in pairs(opts) do
         M.options[k] = v
     end
