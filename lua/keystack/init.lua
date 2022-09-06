@@ -1,6 +1,6 @@
 local M = {
 	-- Functions
-	config = require("keystack.config").config,
+	setup = require("keystack.config").setup,
 	push = require("keystack.functions").pushMapToStack,
 	pop = require("keystack.functions").popMapFromStack,
 
