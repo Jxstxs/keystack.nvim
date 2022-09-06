@@ -11,7 +11,7 @@ a Simple Neovim Plugin which let you remap Keys on the Fly based on Groups
 ```lua
 local keystack = require("keystack")
 
-keystack.config({
+keystack.setup({
     -- the options which will be used when no options were given inside the mapping
     default_opts = { silent = true },
     -- the key to exit the "Group" when no exit key is given inside the mapping
