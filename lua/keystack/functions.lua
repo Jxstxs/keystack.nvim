@@ -4,6 +4,9 @@ M._stack = {}
 
 local options = require("keystack.config").options
 
+-- checks for an existing key
+-- @param key: string: the lhs of a keybinding
+-- @param current: table: the current keymap
 local findExistingKey = function(key, current)
 	for _, value in ipairs(current) do
 		if value.lhs == key then
@@ -12,6 +15,9 @@ local findExistingKey = function(key, current)
 	end
 end
 
+-- sets a keybinding group / pushs the group to the stack
+-- @param map_name: string: the name of the 
+-- @return nil: only returns when a group is not found or already pushed
 M.pushMapToStack = function(map_name)
 	-- check if map exists in options
 	if options.mappings[map_name] == nil then
@@ -104,6 +110,9 @@ M.pushMapToStack = function(map_name)
 	print("Map " .. map_name .. " pushed to stack and activated")
 end
 
+-- pops a group from the stack
+---@param map_name: string: the map to pop from the stack
+---@return nil: only when when group is not inside of the stack
 M.popMapFromStack = function(map_name)
 	-- check if map is in stack
 	if M._stack[map_name] == nil then

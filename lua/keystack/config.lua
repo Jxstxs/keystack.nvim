@@ -8,6 +8,7 @@ M.options = {
 }
 
 -- add a new option to the list
+-- @param opts: table: the user configuration
 M.setup = function(opts)
     for k,v in pairs(opts) do
         M.options[k] = v
